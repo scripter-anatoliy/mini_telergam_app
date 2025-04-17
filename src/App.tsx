@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { getUser } from "@telegram-apps/sdk";
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const telegramUser = getUser();
+    setUser(telegramUser);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {user ? (
+        <div>
+          <h1>Привет, {user.first_name}!</h1>
+          <p>ID: {user.id}</p>
+          <p>Username: {user.username}</p>
+        </div>
+      ) : (
+        <p>Загрузка данных пользователя...</p>
+      )}
     </div>
   );
 }
