@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/mini-telegram-app/static/js/main.ab278e60.js",
+    "index.html": "/mini-telegram-app/index.html",
+    "main.ab278e60.js.map": "/mini-telegram-app/static/js/main.ab278e60.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.ab278e60.js"
+  ]
+}
